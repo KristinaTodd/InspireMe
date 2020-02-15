@@ -1,4 +1,5 @@
 import store from "../store.js";
+import ToDo from "../Models/ToDo.js"
 
 // @ts-ignore
 const todoApi = axios.create({
@@ -12,17 +13,35 @@ class TodoService {
   }
 
   getTodos() {
-    console.log("Getting the Todo List");
-    todoApi.get();
-    //TODO Handle this response from the server
+
+    todoApi
+      .get("")
+      .then(res => {
+        let todoData = new ToDo(res.data.data);
+        store.commit("todos", todoData)
+        console.log(res.data.data);
+      })
+      .catch(error => {
+        throw new Error(error)
+      })
+
   }
 
-  addTodoAsync(todo) {
-    todoApi.post("", todo);
-    //TODO Handle this response from the server (hint: what data comes back, do you want this?)
+  addTodo(todo) {
+    todoApi
+      .post("", store.State.todos)
+      .then(res => {
+        let newTask = new ToDo(res.data.data)
+        let myTasks = [...store.State.todos, newTask]
+        store.commit("todos", myTasks)
+      })
+      .catch(error => {
+        throw new Error(error)
+      })
+
   }
 
-  toggleTodoStatusAsync(todoId) {
+  toggleTodoStatus(todoId) {
     let todo = store.State.todos.find(todo => todo._id == todoId);
     //TODO Make sure that you found a todo,
     //		and if you did find one
@@ -32,12 +51,17 @@ class TodoService {
     //TODO do you care about this data? or should you go get something else?
   }
 
-  removeTodoAsync(todoId) {
-    //TODO Work through this one on your own
-    //		what is the request type
-    //		once the response comes back, what do you need to insure happens?
+  removeTodo(todoId) {
+    let todo = store.State.todos.find(todo => todo._id == todoId);
+
+    todoApi
+      .delete(store.State.todo)
+      .then(res => {
+        let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos._id);
+        store.commit("todos", filteredTodos)
+      })
+
   }
 }
-
 const todoService = new TodoService();
 export default todoService;

@@ -1,9 +1,13 @@
 export default class Value {
     constructor(data) {
-        this.title = data.title
+        this.quote = data.body
+        this.author = data.author
     }
 
     get Template() {
-        return this.title
+        return `
+        <p>"${this.quote}"</p>
+        <p>- ${this.author}</p>
+        `
     }
 }

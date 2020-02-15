@@ -1,11 +1,14 @@
 import Weather from "./Models/Weather.js";
+import Quote from "./Models/Quote.js"
+import todos from "./Models/ToDo.js"
 
 let _state = {
   /**@type {Weather} */
-  weather: null, //temporary fake data
-  /**@type {any[]}*/
+  weather: null,
+  /**@type {todos[]}*/
   todos: [], //TODO change 'any' to your todo model
-  quotes: [],
+  /**@type {Quote} */
+  quote: null,
   images: []
 };
 
@@ -15,7 +18,7 @@ let _state = {
 let _listeners = {
   weather: [],
   todos: [],
-  quotes: [],
+  quote: [],
   images: []
 };
 
