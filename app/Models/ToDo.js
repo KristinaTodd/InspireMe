@@ -5,7 +5,7 @@ export default class ToDo {
     this.description = data.description;
   }
 
-  getTaskTemplate() {
+  get TaskTemplate() {
     return `
     <p><input type="checkbox" id="completed">${this.description}<p>
     `

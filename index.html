@@ -22,18 +22,20 @@
                 <div class="row">
                     <div class="col-12 text-white text-center">Get Something Done!
                     </div>
+                    <div class="col-12 text-center text-white" id="task-list"></div>
                 </div>
                 <div class="form-row align-items-center" onsubmit="app.todoController.addTodo(e)">
                     <div class="col-9">
-                        <label class="sr-only" for="new-task">Name</label>
-                        <input type="text" class="form-control mb-2" id="new-task" placeholder="New Task">
+                        <input type="text" name="description" class="form-control mb-2" id="description"
+                            placeholder="New Task">
                     </div>
                     <div class="col-2">
                         <button type="submit" class="add-button"><i class="fas fa-plus-square"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="col-10"></div>
+            <div class="col-8"></div>
+            <div class="col-1 text-center" id="weather"></div>
         </div>
     </main>
     <footer class="container-fluid bg-transparant fixed-bottom">

@@ -27,7 +27,8 @@ class TodoService {
 
   }
 
-  addTodo(todo) {
+  addTodo(e) {
+    debugger
     todoApi
       .post("", store.State.todos)
       .then(res => {
@@ -51,13 +52,12 @@ class TodoService {
     //TODO do you care about this data? or should you go get something else?
   }
 
-  removeTodo(todoId) {
-    let todo = store.State.todos.find(todo => todo._id == todoId);
+  removeTodo(id) {
 
     todoApi
-      .delete(store.State.todo)
-      .then(res => {
-        let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos._id);
+      .delete(id)
+      .then(() => {
+        let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos.id);
         store.commit("todos", filteredTodos)
       })
 

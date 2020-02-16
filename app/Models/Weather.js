@@ -10,5 +10,13 @@ export default class Weather {
 
     this.city = data.name
     this.kelvin = data.main.temp
+    this.temp = Math.floor(1.8 * (this.kelvin - 273) + 32)
+  }
+
+  get weatherTemplate() {
+    return `
+    <span>${this.temp}°</span>
+    <span>${this.city}</span>
+    `
   }
 }
