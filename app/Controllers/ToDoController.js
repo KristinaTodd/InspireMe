@@ -17,8 +17,8 @@ export default class TodoController {
 
   addTodo(e) {
     e.preventDefault();
-    var form = e.target;
-    var todo = {
+    let form = e.target;
+    let todo = {
       //TODO build the todo object from the data that comes into this method
     };
     TodoService.addTodo(todo);

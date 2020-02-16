@@ -7,18 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>InspireMe</title>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arapey|Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body id="bg-image" class="bg-image">
     <main class="container-fluid">
         <div class="row">
-            <div class="col-3">
-                todo area
+            <div class="col-12 col-md-3 card todo-list">
+                <div class="row">
+                    <div class="col-12 text-white text-center">Get Something Done!
+                    </div>
+                </div>
+                <div class="form-row align-items-center" onsubmit="app.todoController.addTodo(e)">
+                    <div class="col-9">
+                        <label class="sr-only" for="new-task">Name</label>
+                        <input type="text" class="form-control mb-2" id="new-task" placeholder="New Task">
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="add-button"><i class="fas fa-plus-square"></i></button>
+                    </div>
+                </div>
             </div>
-            <div class="col-9"></div>
+            <div class="col-10"></div>
         </div>
     </main>
     <footer class="container-fluid bg-transparant fixed-bottom">

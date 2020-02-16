@@ -3,8 +3,6 @@ import store from "../store.js";
 
 function _draw() {
   let quote = store.State.quote
-  debugger
-
   document.getElementById("quote").innerHTML = quote.Template
 }
 //TODO Create methods for constructor, and rendering the quote to the page

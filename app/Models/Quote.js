@@ -6,8 +6,8 @@ export default class Value {
 
     get Template() {
         return `
-        <p>"${this.quote}"</p>
-        <p>- ${this.author}</p>
+        <span>"${this.quote}"<br></span>
+        <span>- ${this.author}</span>
         `
     }
 }
