@@ -27,7 +27,6 @@ class TodoService {
   }
 
   addTodo(todo) {
-    debugger
     todoApi
       .post("", todo)
       .then(res => {
@@ -52,10 +51,10 @@ class TodoService {
   }
 
   removeTodo(id) {
-
     todoApi
       .delete(id)
       .then(() => {
+        debugger
         let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos.id);
         store.commit("todos", filteredTodos)
       })

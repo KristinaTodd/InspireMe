@@ -5,15 +5,18 @@ import store from "../store.js";
 //TODO Create the render function
 function _drawTodos() {
   let todos = store.State.todos
+  let count = store.State.todos.length.toString()
   console.log(todos)
 
-  let template = ""
+  let taskTemplate = ""
 
   todos.forEach(t => {
-    template += t.TaskTemplate
+    taskTemplate += t.TaskTemplate
   })
 
-  document.getElementById("task-list").innerHTML = template
+  document.getElementById("task-list").innerHTML = taskTemplate
+  document.getElementById("count").innerHTML = `<h5>Tasks Remaining : ${count}</h5>`
+
 }
 
 export default class TodoController {
