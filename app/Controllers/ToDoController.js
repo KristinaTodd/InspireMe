@@ -15,7 +15,7 @@ function _drawTodos() {
   })
 
   document.getElementById("task-list").innerHTML = taskTemplate
-  document.getElementById("count").innerHTML = `<h5>Tasks Remaining : ${count}</h5>`
+  document.getElementById("count").innerHTML = `<h5>Tasks : ${count}</h5>`
 
 }
 

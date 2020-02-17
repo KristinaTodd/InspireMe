@@ -34,7 +34,11 @@ body{
   padding: 0;
   margin: 0;
   height: 4vh;
-  width: 13vw;
+  width: auto;
+}
+
+.fa-minus-square{
+  cursor: pointer;
 }
 
 #weather {
