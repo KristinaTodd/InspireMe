@@ -9,7 +9,7 @@ export default class ToDo {
 
   get TaskTemplate() {
     return `
-    <p> <input type="checkbox" id="completed"> ${this.description} <i class="far fa-minus-square text-danger" onclick="app.todoController.removeTodo('${this._id}')"></i><p>
+    <p> <input ${this.completed ? 'checked' : ''} type="checkbox" id="completed" onclick="app.todoController.toggleTodoStatus('${this._id}')"> ${this.description} <i class="far fa-minus-square text-danger" onclick="app.todoController.removeTodo('${this._id}')"></i><p>
     `
   }
 

@@ -3,7 +3,7 @@ import ToDo from "../Models/ToDo.js"
 
 // @ts-ignore
 const todoApi = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/luketodd/todos/",
+  baseURL: "https://bcw-sandbox.herokuapp.com/api/kristina/todos/",
   timeout: 8000
 });
 
@@ -42,12 +42,13 @@ class TodoService {
 
   toggleTodoStatus(todoId) {
     let todo = store.State.todos.find(todo => todo._id == todoId);
-    //TODO Make sure that you found a todo,
-    //		and if you did find one
-    //		change its completed status to whatever it is not (ex: false => true or true => false)
+    todo.completed = !todo.completed
 
-    todoApi.put(todoId, todo);
-    //TODO do you care about this data? or should you go get something else?
+    todoApi
+      .put(todoId, todo)
+      .then(res => {
+        store.commit("todos", res)
+      })
   }
 
   removeTodo(id) {

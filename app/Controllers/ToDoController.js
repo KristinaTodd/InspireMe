@@ -5,7 +5,7 @@ import store from "../store.js";
 //TODO Create the render function
 function _drawTodos() {
   let todos = store.State.todos
-  let count = store.State.todos.length.toString()
+  let count = store.State.todos.length.toString() || 0
   console.log(todos)
 
   let taskTemplate = ""
