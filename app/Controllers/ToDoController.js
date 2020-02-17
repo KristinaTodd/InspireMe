@@ -9,27 +9,26 @@ function _drawTodos() {
 
   let template = ""
 
-  // todos.forEach(t => {
-  //   template += t.TaskTemplate
-  // })
+  todos.forEach(t => {
+    template += t.TaskTemplate
+  })
+
   document.getElementById("task-list").innerHTML = template
 }
 
 export default class TodoController {
   constructor() {
     console.log("todo controller is working")
-    //TODO Remember to register your subscribers
     store.subscribe("todos", _drawTodos)
     TodoService.getTodos();
-
   }
 
-  addTodo(e) {
+  addTodo(event) {
     debugger
-    e.preventDefault();
-    let formData = e.target;
+    event.preventDefault();
+    let formData = event.target;
     let todo = {
-      description: formData.Desription.value
+      description: formData.Description.value
     };
     TodoService.addTodo(todo);
     formData.reset()

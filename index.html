@@ -20,19 +20,20 @@
         <div class="row">
             <div class="col-12 col-md-3 card todo-list">
                 <div class="row">
-                    <div class="col-12 text-white text-center">Get Something Done!
+                    <div class="col-12 text-white text-center">
+                        <h5>Get Something Done!</h5>
                     </div>
-                    <div class="col-12 text-center text-white" id="task-list"></div>
+                    <div class="col-12 text-white" id="task-list"></div>
                 </div>
-                <div class="form-row align-items-center" onsubmit="app.todoController.addTodo(e)">
-                    <div class="col-9">
-                        <input type="text" name="description" class="form-control mb-2" id="description"
+                <form class="form-row align-items-center flex" onsubmit="app.todoController.addTodo(event)">
+                    <div class="col-10">
+                        <input type="text" name="Description" class="form-box mb-2" id="Description"
                             placeholder="New Task">
                     </div>
                     <div class="col-2">
-                        <button type="submit" class="add-button"><i class="fas fa-plus-square"></i></button>
+                        <button type="form-box" class="add-button"><i class="fas fa-plus-square"></i></button>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="col-8"></div>
             <div class="col-1 text-center" id="weather"></div>

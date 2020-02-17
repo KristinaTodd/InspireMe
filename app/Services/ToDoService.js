@@ -3,7 +3,7 @@ import ToDo from "../Models/ToDo.js"
 
 // @ts-ignore
 const todoApi = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/kristina/todos/",
+  baseURL: "https://bcw-sandbox.herokuapp.com/api/luketodd/todos/",
   timeout: 8000
 });
 
@@ -13,13 +13,12 @@ class TodoService {
   }
 
   getTodos() {
-
     todoApi
       .get("")
       .then(res => {
-        let todoData = new ToDo(res.data.data);
+        let todoData = res.data.data.map(t => new ToDo(t))
         store.commit("todos", todoData)
-        console.log(res.data.data);
+        console.log(res.data);
       })
       .catch(error => {
         throw new Error(error)
@@ -27,10 +26,10 @@ class TodoService {
 
   }
 
-  addTodo(e) {
+  addTodo(todo) {
     debugger
     todoApi
-      .post("", store.State.todos)
+      .post("", todo)
       .then(res => {
         let newTask = new ToDo(res.data.data)
         let myTasks = [...store.State.todos, newTask]
@@ -60,7 +59,6 @@ class TodoService {
         let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos.id);
         store.commit("todos", filteredTodos)
       })
-
   }
 }
 const todoService = new TodoService();

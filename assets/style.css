@@ -16,12 +16,32 @@ body{
   color: rgb(7, 204, 7);
   outline: 0;
   border: none;
-  font-size: 7vh;
+  font-size: 5vh;
+  outline: 0;
 }
 
 .form-row{
   padding: 0.5vh;
 
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-control{
+  padding: 0;
+  margin: 0;
+  height: 4vh;
+  width: 13vw;
+}
+
+#weather {
+  font-family: 'Fjalla One', sans-serif;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  height: 10vh;
 }
 
 footer{
