@@ -37,12 +37,10 @@ export default class TodoController {
     formData.reset()
   }
 
-  //NOTE This method will pass an Id to your service for the TODO that will need to be toggled
   toggleTodoStatus(todoId) {
     TodoService.toggleTodoStatus(todoId);
   }
 
-  //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
   removeTodo(todoId) {
     TodoService.removeTodo(todoId);
   }

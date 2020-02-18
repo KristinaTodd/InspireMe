@@ -55,7 +55,7 @@ class TodoService {
     todoApi
       .delete(id)
       .then(() => {
-        let filteredTodos = store.State.todos.filter(t => t._id != store.State.todos.id);
+        let filteredTodos = store.State.todos.filter(t => t._id != id);
         store.commit("todos", filteredTodos)
       })
   }
